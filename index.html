@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 <head>
@@ -98,3 +99,105 @@
   <script type="module" src="js/main.js"></script>
 </body>
 </html>
+=======
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="canonical" href="." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Live crypto prices, market caps, charts, and a watchlist — fast, accessible, PWA." />
+  <meta name="keywords" content="crypto, cryptocurrency, price, bitcoin, ethereum, market cap, chart, watchlist, PWA" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0f172a" />
+  <!-- CSP: tighten as needed. Allow jsdelivr for Chart.js ESM. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self';
+          img-src 'self' https://assets.coingecko.com data:;
+          style-src 'self' 'unsafe-inline';
+          script-src 'self' https://cdn.jsdelivr.net;
+          connect-src 'self' https://api.coingecko.com;
+          font-src 'self';
+          base-uri 'self';
+          form-action 'self';
+          frame-ancestors 'none';
+        ">
+  <meta property="og:title" content="Crypto Price Tracker" />
+  <meta property="og:description" content="Real-time crypto prices, charts, and a watchlist — fast, accessible PWA." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/icons/icon-512.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+  <title>Crypto Price Tracker</title>
+  <link rel="preload" href="styles/base.css" as="style">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/table.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Crypto Price Tracker",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "url": ".",
+    "description": "Real-time crypto prices, charts, and a watchlist — fast, accessible PWA."
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="app-header" role="banner">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="App logo" class="logo" width="28" height="28" decoding="async">
+      <h1>Crypto Price Tracker</h1>
+    </div>
+    <div class="header-controls">
+      <input id="search" type="search" placeholder="Search coins…" aria-label="Search coins" autocomplete="off">
+      <select id="currency" aria-label="Currency">
+        <option value="USD">$ USD</option>
+        <option value="EUR">€ EUR</option>
+        <option value="INR">₹ INR</option>
+      </select>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme (t)">🌓</button>
+      <a href="#watchlist" id="watchlistLink" class="btn-link" aria-label="Open watchlist">Watchlist</a>
+      <label class="refresh">
+        <span class="sr-only">Refresh interval</span>
+        <select id="refresh" aria-label="Refresh interval">
+          <option value="15000">15s</option>
+          <option value="30000" selected>30s</option>
+          <option value="60000">60s</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section aria-labelledby="table-heading">
+      <h2 id="table-heading" class="sr-only">Market Table</h2>
+      <div class="table-toolbar">
+        <div class="filters" role="group" aria-label="Filter">
+          <button class="chip" data-filter="10">Top 10</button>
+          <button class="chip" data-filter="50">Top 50</button>
+          <button class="chip active" data-filter="100">Top 100</button>
+        </div>
+        <div id="lastUpdated" class="muted" aria-live="polite"></div>
+      </div>
+      <div id="table-root" class="table-root" aria-live="polite" aria-busy="true"></div>
+      <div id="loader" class="skeleton-table"></div>
+      <div id="sentinel" class="sentinel" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <div id="modal-root" aria-live="polite"></div>
+  <div id="toast-root" aria-live="assertive" aria-atomic="true"></div>
+  <div id="offline-banner" class="offline-banner" hidden role="status">Offline — showing cached data</div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
+>>>>>>> 530db5daaec23920649897806d4a51bfac202cc5
