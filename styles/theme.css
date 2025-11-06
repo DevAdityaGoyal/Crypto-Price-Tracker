@@ -1,0 +1,17 @@
+/* Light theme variables */
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f8fafc; --fg:#0f172a; --muted:#475569; --card:#ffffff; --border:#e2e8f0;
+    --accent-up:#15803d; --accent-down:#b91c1c; --focus:#2563eb; --link:#2563eb;
+  }
+}
+
+:root[data-theme="light"]{
+  --bg:#f8fafc; --fg:#0f172a; --muted:#475569; --card:#ffffff; --border:#e2e8f0;
+  --accent-up:#15803d; --accent-down:#b91c1c; --focus:#2563eb; --link:#2563eb;
+}
+
+:root[data-theme="dark"]{
+  --bg:#0b1221; --fg:#e5e7eb; --muted:#9ca3af; --card:#0f172a; --border:#1f2937;
+  --accent-up:#16a34a; --accent-down:#ef4444; --focus:#38bdf8; --link:#60a5fa;
+}

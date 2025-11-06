@@ -1,0 +1,25 @@
+.modal-backdrop{
+  position:fixed; inset:0; background:rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; z-index:2000
+}
+.modal{
+  max-width:min(980px, 95vw); width:100%; background:var(--card); color:var(--fg);
+  border:1px solid var(--border); border-radius:.75rem; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,.45)
+}
+.modal header{
+  display:flex; align-items:center; justify-content:space-between; gap:.5rem; padding: .75rem 1rem; border-bottom:1px solid var(--border)
+}
+.modal .content{ padding:1rem; display:grid; gap:1rem }
+.modal .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem }
+.modal .stat{ background:rgba(255,255,255,.03); border:1px solid var(--border); padding:.5rem .75rem; border-radius:.5rem }
+.modal .chart{ height:300px }
+.modal .tabs{ display:flex; gap:.5rem }
+.modal .tabs button{ background:var(--card); border:1px solid var(--border); padding:.35rem .6rem; border-radius:999px; cursor:pointer }
+.modal .tabs button.active{ outline:2px solid var(--focus) }
+
+.toast{
+  position:fixed; right:1rem; bottom:1rem; display:grid; gap:.5rem; z-index:3000; width:min(360px, 95vw)
+}
+.toast .item{
+  background:#1e293b; color:white; border-radius:.5rem; padding:.6rem .75rem; box-shadow:0 10px 30px rgba(0,0,0,.35)
+}
+.toast .item.error{ background:#991b1b }

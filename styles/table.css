@@ -1,0 +1,64 @@
+.table-root{overflow:auto}
+table.market{
+  width:100%; border-collapse:separate; border-spacing:0; background:var(--card);
+  border:1px solid var(--border); border-radius:.75rem; overflow:hidden
+}
+caption{padding:.5rem 1rem;color:var(--muted);text-align:left}
+thead th{
+  position:sticky; top:0; background:var(--card); z-index:1;
+  font-weight:600; text-align:right; padding:.75rem .75rem; border-bottom:1px solid var(--border);
+  white-space:nowrap
+}
+thead th:first-child, tbody th{ text-align:left }
+tbody td, tbody th{ padding:.6rem .75rem; border-bottom:1px solid var(--border); vertical-align:middle }
+tbody tr:hover{ background:rgba(255,255,255,.03) }
+tbody tr:focus-within{ outline:2px solid var(--focus) }
+tbody td.spark{ width:140px; }
+.coin{
+  display:flex; align-items:center; gap:.5rem
+}
+.coin img{ width:20px; height:20px; border-radius:50% }
+.rank{ color:var(--muted) }
+.price-up{ color:var(--accent-up); font-variant-numeric:tabular-nums }
+.price-down{ color:var(--accent-down); font-variant-numeric:tabular-nums }
+.numeric{ text-align:right; font-variant-numeric:tabular-nums }
+.star{ cursor:pointer; background:none; border:none; font-size:1.05rem }
+.star[aria-pressed="true"]{ color:#fbbf24 }
+
+/* Sticky first column for wide screens */
+@media (min-width: 1200px){
+  tbody th.sticky, thead th.sticky{
+    position:sticky; left:0; background:var(--card); z-index:2
+  }
+}
+
+/* Progressive disclosure on medium screens */
+@media (max-width:1199px){
+  .col-supply, .col-volume { display:none }
+}
+
+/* Mobile: cards */
+@media (max-width: 767px){
+  table.market{ display:none }
+  .cards{ display:grid; gap:.75rem }
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:.75rem; padding:.75rem;
+    display:grid; grid-template-columns: 1fr auto; gap:.5rem; align-items:center
+  }
+  .card .row{ display:flex; gap:1rem; justify-content:space-between }
+  .card .spark{ grid-column:1/-1; height:48px }
+}
+
+/* Skeleton placeholder for table */
+.skeleton-table{
+  height:420px; border:1px solid var(--border); border-radius:.75rem; background:var(--card);
+  position:relative; overflow:hidden
+}
+.skeleton-table::before{
+  content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(255,255,255,.04), rgba(255,255,255,.09), rgba(255,255,255,.04));
+  background-size:200% 100%; animation:shimmer 1.25s infinite
+}
+
+/* Sort indicators */
+th[aria-sort="ascending"]::after{ content:" ↑"; font-size:.8em }
+th[aria-sort="descending"]::after{ content:" ↓"; font-size:.8em }
